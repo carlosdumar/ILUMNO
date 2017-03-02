@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Contactos</h2>
+
+@*@Html.ActionLink("New Contact", "New", "Contacts", new { @class = "btn btn-primary" })*@
+
+<div>
+    <a ng-href="/Contacts/New">New Contact</a>
+</div>
+
+@*<button type="button" class="btn btn-primary" ng-click="getContacts()">Buscar Contactos</button>*@
+<div ng-controller="ContactController as contact">
+    <a ng-click="getContacts()">Buscar Contactos</a>
+
+    <table id="customers" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Cell Phone Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="c in contact.contacts">
+                <td >{{c.Name}}</td>
+                <td>{{c.LastName}}</td>
+                <td>{{c.Email}}</td>
+                <td>{{c.PhoneNumber}}</td>
+                <td>{{c.CellPhoneNumber}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
